@@ -1,0 +1,48 @@
+
+<!-- En-tête de la page -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des Annonces</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Contenu de la page -->
+<ion-content>
+  <!-- Liste d'annonces -->
+  <ion-list>
+    <!-- Boucle à travers chaque annonce -->
+    <ion-item *ngFor="let annonce of annonces">
+      <!-- Titre de l'annonce -->
+      <ion-label>{{ annonce.title }}</ion-label>
+      
+      <!-- Description de l'annonce -->
+      <ion-label>{{ annonce.description }}</ion-label>
+      
+      <!-- Catégorie de l'annonce (chargée de manière asynchrone) -->
+      <ion-note slot="end">
+        <!-- Utilisation de ng-container pour éviter d'introduire des éléments HTML supplémentaires -->
+        <ng-container *ngIf="getCategoryName(annonce.categoryId) | async as categoryName">
+          {{ categoryName }}
+        </ng-container>
+      </ion-note>
+
+      <!-- Bouton pour éditer l'annonce -->
+      <ion-button (click)="editAnnonce(annonce.id)" >Modifier</ion-button>
+      
+      <!-- Bouton pour supprimer l'annonce -->
+      <ion-button  color="danger" (click)="deleteAnnonce(annonce.id)">Supprimer</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- Barre d'outils avec un bouton pour ajouter une nouvelle annonce -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des Annonces</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="createAnnonce()">
+        <ion-icon name="add"></ion-icon> Ajouter Annonce
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

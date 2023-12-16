@@ -1,0 +1,49 @@
+<!-- src/app/app.component.html -->
+
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu side="start" contentId="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <!-- Liste des Annonces -->
+        <ion-list>
+          <ion-item routerLink="/annonces">
+            Listes des Annonces
+          </ion-item>
+        </ion-list>
+
+        <!-- Liste des Catégories -->
+        <ion-list>
+          <ion-item routerLink="/categories">
+            Listes des Catégories
+          </ion-item>
+        </ion-list>
+        
+        <!-- Ajoutez d'autres liens ou contenu si nécessaire -->
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content">
+      <!-- Contenu principal avec en-tête -->
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <!-- Bouton pour afficher le menu -->
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>Ma Barre de Navigation</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <!-- Contenu principal sans en-tête -->
+      <ion-content>
+        <!-- Le reste du contenu de la page -->
+        <!-- Vous pouvez ajouter d'autres éléments ici -->
+      </ion-content>
+    </ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

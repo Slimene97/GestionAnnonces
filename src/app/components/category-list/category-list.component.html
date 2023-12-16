@@ -1,0 +1,25 @@
+
+<!-- Balise d'en-tête avec la barre d'outils -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des Catégories</ion-title> <!-- Titre de la page -->
+    
+    <!-- Bouton "Ajouter Catégorie" à droite de la barre d'outils -->
+    <ion-buttons slot="end">
+      <ion-button (click)="createCategory()"> <!-- Écouteur d'événement sur le clic du bouton -->
+        <ion-icon name="add"></ion-icon> Ajouter Catégorie <!-- Icône et texte du bouton -->
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Contenu principal de la page -->
+<ion-content>
+  <ion-list>
+    <!-- Boucle sur chaque catégorie pour afficher les éléments de la liste -->
+    <ion-item *ngFor="let category of categories">
+      <ion-label>{{ category.name }}</ion-label> <!-- Affichage du nom de la catégorie -->
+      <!-- Ajoutez d'autres éléments de la catégorie si nécessaire -->
+    </ion-item>
+  </ion-list>
+</ion-content>

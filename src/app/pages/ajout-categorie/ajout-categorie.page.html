@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Titre de la barre d'outils avec une condition pour ajouter ou modifier la catégorie -->
+    <ion-title>{{ categoryId ? 'Modifier' : 'Ajouter' }} une Catégorie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Contenu de la page avec plein écran -->
+<ion-content [fullscreen]="true">
+  <!-- Formulaire avec gestion de l'événement de soumission -->
+  <form (ngSubmit)="submitForm()">
+    <!-- Liste d'éléments Ionic -->
+    <ion-list>
+      <!-- Champ de saisie pour le nom de la catégorie -->
+      <ion-item>
+        <ion-label position="floating">Nom de la catégorie</ion-label>
+        <!-- Liaison bidirectionnelle avec ngModel -->
+        <ion-input [(ngModel)]="newCategory.name" name="name" required></ion-input>
+      </ion-item>
+      <!-- Ajoutez d'autres champs selon vos besoins -->
+    </ion-list>
+
+    <!-- Bouton d'expansion en plein écran pour soumettre le formulaire -->
+    <ion-button expand="full" type="submit">{{ categoryId ? 'Modifier' : 'Ajouter' }} Catégorie</ion-button>
+  </form>
+</ion-content>

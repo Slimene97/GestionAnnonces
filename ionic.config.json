@@ -1,0 +1,7 @@
+{
+  "name": "GestionAnnonce",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
